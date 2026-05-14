@@ -1,0 +1,32 @@
+openapi: 3.0.0
+info:
+  title: PhotoPrism Vision API
+  version: 1.0.0
+  description: Computer Vision Models API
+
+paths:
+  /api/v1/vision/describe:
+    post:
+      summary: Generate image caption
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                url:
+                  type: string
+                model:
+                  type: string
+                  enum:
+                    [
+                      kosmos-2,
+                      vit-gpt2-image-captioning,
+                      blip-image-captioning-large,
+                    ]
+                id:
+                  type: string
+      responses:
+        "200":
+          description: Successful response
